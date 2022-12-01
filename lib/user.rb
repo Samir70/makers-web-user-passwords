@@ -1,1 +1,1 @@
-User = Struct.new(:name, :email, :password)
+User = Struct.new(:id, :name, :email, :password)

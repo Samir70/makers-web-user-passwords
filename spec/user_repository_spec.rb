@@ -18,12 +18,14 @@ RSpec.describe UserRepository do
     expect(users.first.class).to eq User
     expect(users.first.name).to eq "Sherlock"
     expect(users.last.name).to eq "Columbo"
+    expect(users.last.id).to eq 3
   end
   it "finds user by name" do
     repo = UserRepository.new
     user = repo.find("Sherlock")
     expect(user.email).to eq "sholmes@bakerst.com"
     expect(user.name).to eq "Sherlock"
+    expect(user.id).to eq 1
   end
   it "checks that passwords match" do
     repo = UserRepository.new
