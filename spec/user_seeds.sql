@@ -8,9 +8,9 @@ CREATE TABLE users (
     password text
 );
 
-TRUNCATE TABLE albums RESTART IDENTITY;
+TRUNCATE TABLE users RESTART IDENTITY;
 
-INSERT INTO albums ("name", "email", "password") VALUES
-('Sherlock', 'sholmes@bakerst.com', 'watson')
-('Columbo', 'columbo@bakerst.com', '1MoreThing!')
+INSERT INTO users ("name", "email", "password") VALUES
+('Sherlock', 'sholmes@bakerst.com', 'watson'),
+('Columbo', 'columbo@bakerst.com', '1MoreThing!');
 
