@@ -31,8 +31,8 @@ RSpec.describe UserRepository do
     repo = UserRepository.new
     does_match = repo.check_password("Sherlock", "TheButlerDidIt")
     does_not_match = repo.check_password("Sherlock", "WATSON!!!")
-    expect(does_match).to eq true
-    expect(does_not_match).to eq false
+    expect(does_match.name).to eq "Sherlock"
+    expect(does_not_match).to eq nil
   end
   it "adds a user, with email and password details" do
     repo = UserRepository.new
@@ -42,7 +42,7 @@ RSpec.describe UserRepository do
     expect(user.password).not_to eq "TheButlerDidIt"
     does_match = repo.check_password("Miss Marple", "TheButlerDidIt")
     does_not_match = repo.check_password("Miss Marple", "WATSON!!!")
-    expect(does_match).to eq true
-    expect(does_not_match).to eq false
+    expect(does_match.name).to eq "Miss Marple"
+    expect(does_not_match).to eq nil
   end
 end

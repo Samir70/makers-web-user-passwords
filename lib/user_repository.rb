@@ -1,4 +1,4 @@
-require "user"
+require_relative "user"
 require "bcrypt"
 
 class UserRepository
@@ -26,9 +26,9 @@ class UserRepository
   def check_password(name, submitted_password)
     user = find(name)
     if user.nil?
-        return false
+        return nil
     end
     pass_hash = BCrypt::Password.new(user.password)
-    return pass_hash == submitted_password
+    return pass_hash == submitted_password ? user : nil
   end
 end
