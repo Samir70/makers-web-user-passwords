@@ -14,7 +14,7 @@ RSpec.describe UserRepository do
   it "lists all users" do
     repo = UserRepository.new
     users = repo.all
-    expect(users.length).to eq 2
+    expect(users.length).to eq 3
     expect(users.first.class).to eq User
     expect(users.first.name).to eq "Sherlock"
     expect(users.last.name).to eq "Columbo"
@@ -23,14 +23,14 @@ RSpec.describe UserRepository do
     repo = UserRepository.new
     user = repo.find("Sherlock")
     expect(user.email).to eq "sholmes@bakerst.com"
-    expect(user.password).to eq "watson"
+    expect(user.name).to eq "Sherlock"
   end
-  xit "checks that passwords match" do
+  it "checks that passwords match" do
     repo = UserRepository.new
-    does_match = repo.check_password("Sherlock", "watson")
+    does_match = repo.check_password("Sherlock", "TheButlerDidIt")
     does_not_match = repo.check_password("Sherlock", "WATSON!!!")
     expect(does_match).to eq true
-    expect(does__not_match).to eq false
+    expect(does_not_match).to eq false
   end
   it "adds a user, with email and password details" do
     repo = UserRepository.new
@@ -41,6 +41,6 @@ RSpec.describe UserRepository do
     does_match = repo.check_password("Miss Marple", "TheButlerDidIt")
     does_not_match = repo.check_password("Miss Marple", "WATSON!!!")
     expect(does_match).to eq true
-    expect(does__not_match).to eq false
+    expect(does_not_match).to eq false
   end
 end

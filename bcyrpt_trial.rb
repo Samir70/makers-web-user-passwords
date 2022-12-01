@@ -17,3 +17,7 @@ puts pass_hash_reborn == "sdkjfahsk" # expect false
 # I copied this hash from the terminal, but something is not being printed there
 pretend_from_db = BCrypt::Password.new("$2a$12$QonFNjYZNPNQIuLZMNQoe.mG7a8uUd.nJMIApN0n9scoqqdX4P0hO")
 puts "hello world" == pretend_from_db
+
+# I copied this hash from the users_test database
+from_db = BCrypt::Password.new("$2a$12$gNATEf2vbl7m3DX6yngs7egLm5SCE4SCntikMqCOD2T.X0B/GRocq")
+puts "TheButlerDidIt" == from_db #here is says false, but in app it says true.
